@@ -18,9 +18,12 @@ fi
 folders=("$CONFIG_DIR"/*(/N))
 
 function Do_Git_Work {
-  #git pull
   gh auth status
   git status
+  #git pull
+  git add .
+  git commit -m "$(date)"
+  git push
 }
 # Print the results
 print "Top-level folders in $CONFIG_DIR:"
