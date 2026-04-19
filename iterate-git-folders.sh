@@ -20,16 +20,17 @@ folders=("$CONFIG_DIR"/*(/N))
 # Print the results
 print "Top-level folders in $CONFIG_DIR:"
 for dir in "${folders[@]}"; do
-    #echo $dir 
+    echo "----------------------------------"
+    echo $dir 
     print "${dir:t}"          # :t gives only the folder name (basename)
     cd "$dir"
     echo "Now in: " $dir
+    echo "----------------------------------"
     if [ -f "git-script.sh" ]; then
       echo "git-script.sh exists"
       exec ./git-script.sh
     else
       echo "git-script doesn't exist"
     fi
-    sleep 1
-
+    sleep 500ms
 done
