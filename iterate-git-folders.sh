@@ -32,5 +32,7 @@ for dir in "${folders[@]}"; do
     print "${dir:t}"          # :t gives only the folder name (basename)
     cd "$dir"
     echo "Now in: " $dir
-    Do_Git_Work
+    exec ./git-script.sh
+    sleep 3
+    return
 done
