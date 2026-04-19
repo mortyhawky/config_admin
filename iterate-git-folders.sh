@@ -20,6 +20,16 @@ folders=("$CONFIG_DIR"/*(/N))
 # Print the results
 print "Top-level folders in $CONFIG_DIR:"
 for dir in "${folders[@]}"; do
+  echo $dir
+done
+#return
+
+function git_push {
+  git add . -v
+  git commit -m "$(date -Iseconds)" -v
+}
+
+for dir in "${folders[@]}"; do
     echo "----------------------------------"
     #echo $dir 
     #print "${dir:t}"          # :t gives only the folder name (basename)
@@ -28,9 +38,10 @@ for dir in "${folders[@]}"; do
     echo "----------------------------------"
     if [ -f "git-script.sh" ]; then
       echo "git-script.sh exists"
-      exec ./git-script.sh
+      git_push
     else
       echo "git-script doesn't exist"
     fi
-    sleep 500ms
+    echo "sleep 1"
+    sleep 1
 done
