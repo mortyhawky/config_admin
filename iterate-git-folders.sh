@@ -17,14 +17,6 @@ fi
 # Get only top-level directories into an array
 folders=("$CONFIG_DIR"/*(/N))
 
-function Do_Git_Work {
-  gh auth status
-  git status
-  #git pull
-  git add .
-  git commit -m "$(date -Iseconds)"
-  git push
-}
 # Print the results
 print "Top-level folders in $CONFIG_DIR:"
 for dir in "${folders[@]}"; do
@@ -32,7 +24,12 @@ for dir in "${folders[@]}"; do
     print "${dir:t}"          # :t gives only the folder name (basename)
     cd "$dir"
     echo "Now in: " $dir
-    exec ./git-script.sh
-    sleep 3
-    return
+    if [ -f "git-script.sh" ]; then
+      echo "git-script.sh exists"
+      exec ./git-script.sh
+    else
+      echo "git-script doesn't exist"
+    fi
+    sleep 1
+
 done
