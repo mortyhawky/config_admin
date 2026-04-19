@@ -33,6 +33,4 @@ for dir in "${folders[@]}"; do
     cd "$dir"
     echo "Now in: " $dir
     Do_Git_Work
-
-    return
 done
