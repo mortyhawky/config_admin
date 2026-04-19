@@ -22,7 +22,7 @@ function Do_Git_Work {
   git status
   #git pull
   git add .
-  git commit -m "$(date)"
+  git commit -m "$(date -Iseconds)"
   git push
 }
 # Print the results
@@ -33,4 +33,5 @@ for dir in "${folders[@]}"; do
     cd "$dir"
     echo "Now in: " $dir
     Do_Git_Work
+    return
 done
