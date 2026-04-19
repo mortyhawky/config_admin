@@ -27,6 +27,7 @@ done
 function git_push {
   git add . -v
   git commit -m "$(date -Iseconds)" -v
+  git push -v
 }
 
 for dir in "${folders[@]}"; do
