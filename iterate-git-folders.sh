@@ -32,7 +32,6 @@ function git_push {
 
 for dir in "${folders[@]}"; do
     echo "----------------------------------"
-    #echo $dir 
     #print "${dir:t}"          # :t gives only the folder name (basename)
     cd "$dir"
     echo "Now in: " $dir
