@@ -10,7 +10,7 @@ function git_push {
   pause
   git commit -m "$(date -Iseconds)" -v |bat
   pause
-  git push push -v |bat
+  git push -v |bat
 }
 
 # entry point
