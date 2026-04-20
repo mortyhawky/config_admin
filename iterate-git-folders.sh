@@ -1,28 +1,9 @@
 #!/usr/bin/env zsh
 
-# Set XDG_CONFIG_HOME if not already set
-#echo "XDG_CONFIG_HOME="$XDG_CONFIG_HOME
-#: ${XDG_CONFIG_HOME:=$HOME/.config}
-#echo "XDG_CONFIG_HOME="$XDG_CONFIG_HOME
-#return
-
-CONFIG_DIR="$XDG_CONFIG_HOME"
-
-# Check if directory exists
-if [[ ! -d "$CONFIG_DIR" ]]; then
-    print -u2 "Error: Directory '$CONFIG_DIR' does not exist."
-    exit 1
-fi
-
-# Get only top-level directories into an array
-folders=("$CONFIG_DIR"/*(/N))
-
-# Print the results
-print "Top-level folders in $CONFIG_DIR:"
-for dir in "${folders[@]}"; do
-  echo $dir
-done
-#return
+pause() {
+  read -sk1 "?Press any key to continue..."
+  echo
+}
 
 function git_push {
   git add . -v
@@ -30,18 +11,47 @@ function git_push {
   git push -v
 }
 
+# entry point
+clear
+abs_path_r=${0:A}     # absolute resolved symlinks
+abs_path_u=${0:P}     # absolute unreolved symlinks
+SCRIPT_DIR=${0:A:h}   # just the directory
+SCRIPT_NAME=${0:t}    # :t = tail = just the filename
+echo "abs_path_r="$abs_path_r
+echo "abs_path_u="$abs_path_u
+echo "SCRIPT_DIR="$SCRIPT_DIR
+echo "SCRIPT_NAME="$SCRIPT_NAME
+echo
+echo "in: "$abs_path_r
+pause
+
+# Get only top-level directories into an array
+folders=("$XDG_CONFIG_HOME"/*(/N))
+
+# Print the results
+print "Top-level folders in $CONFIG_DIR:"
+for dir in "${folders[@]}"; do
+  echo $dir
+done
+
+pause
+#return
+
+
+
 for dir in "${folders[@]}"; do
     echo "----------------------------------"
-    #print "${dir:t}"          # :t gives only the folder name (basename)
+    print "${dir}"          # :t gives only the folder name (basename)
     cd "$dir"
     echo "Now in: " $dir
-    echo "----------------------------------"
-    if [ -f "git-script.sh" ]; then
-      echo "git-script.sh exists"
+    if [[ -d ".git" ]]; then
+      echo "Is a git repo"
       git_push
     else
-      echo "git-script doesn't exist"
+      echo "Not a git repo"
     fi
-    echo "sleep 1"
-    sleep 1
+    pause
+    #return
+    #echo "sleep 1..."
+    #sleep 1
 done

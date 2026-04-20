@@ -1,27 +1,27 @@
 #!/usr/bin/env zsh
+echo "in: 01-backup-config.sh"
 
-clear
 echo "----------------------------"
 DRY="false"
 echo "DRY="$DRY
 SRC="$HOME/.config/"
 echo "SRC="$SRC
-DST="/a/linux/current/.config/"
+DST="/a/linux/current/.config_backup/"
 echo "DST="$DST
 echo "----------------------------"
+
 
 mkdir -p "$DST"
 
 opts=(
   -rtvvL --delete               
-  --exclude='/cache/'           
-  --exclude='/tmp/'             
-  --exclude='/mozilla/'         
-  --exclude='/alacritty/themes/'
-  --exclude='/.git/'             
-  --exclude='/dconf/'
-  --exclude='/gtk-3.0/'
-  #--exclude='01-backup-config.sh'
+  --exclude=".git/"             
+  --exclude="themes/"
+  --exclude="cache/"
+  --exclude="dconf/"
+  --exclude="gtk-3.0/"
+  --exclude="mozilla/"
+  --exclude="tmp/"
 )
 
 if $DRY; then
