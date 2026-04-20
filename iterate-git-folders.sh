@@ -10,7 +10,7 @@ function git_push {
   pause
   git commit -m "$(date -Iseconds)" -v |bat
   pause
-  git push --dry-run
+  git push push -v |bat
 }
 
 # entry point
@@ -26,6 +26,7 @@ echo "SCRIPT_NAME="$SCRIPT_NAME
 echo
 echo "in: "$abs_path_r
 #pause
+#return
 
 # Get only top-level directories into an array
 folders=("$XDG_CONFIG_HOME"/*(/N))
@@ -35,8 +36,7 @@ print "Top-level folders in $CONFIG_DIR:"
 for dir in "${folders[@]}"; do
   echo $dir
 done
-
-pause
+#pause
 #return
 
 
@@ -47,14 +47,10 @@ for dir in "${folders[@]}"; do
     cd "$dir"
     echo "Now in: " $dir
     if [[ -d ".git" ]]; then
-      echo "Is a git repo"
+      echo "${dir:t} is a git repo: --> Calling function git_push"
       pause
       git_push
     else
-      echo "Not a git repo"
+      echo "Not a git repo, skipping ${dir:t}"
     fi
-    #pause
-    #return
-    #echo "sleep 1..."
-    #sleep 1
 done
