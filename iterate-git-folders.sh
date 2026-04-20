@@ -24,7 +24,7 @@ echo "abs_path_u="$abs_path_u
 echo "SCRIPT_DIR="$SCRIPT_DIR
 echo "SCRIPT_NAME="$SCRIPT_NAME
 echo
-echo "in: "$abs_path_r
+#echo "in: "$abs_path_r
 #pause
 #return
 
@@ -45,7 +45,7 @@ for dir in "${folders[@]}"; do
     echo "----------------------------------"
     print "${dir}"          # :t gives only the folder name (basename)
     cd "$dir"
-    echo "Now in: " $dir
+    echo "Now in foler: " $dir
     if [[ -d ".git" ]]; then
       echo "${dir:t} is a git repo: --> Calling function git_push"
       pause
