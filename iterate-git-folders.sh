@@ -46,11 +46,12 @@ for dir in "${folders[@]}"; do
     echo "Now in: " $dir
     if [[ -d ".git" ]]; then
       echo "Is a git repo"
+      pause
       git_push
     else
       echo "Not a git repo"
     fi
-    pause
+    #pause
     #return
     #echo "sleep 1..."
     #sleep 1
