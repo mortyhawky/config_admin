@@ -7,9 +7,9 @@ pause() {
 
 function git_push {
   git add . -v |bat
-  pause
+  #pause
   git commit -m "$(date -Iseconds)" -v |bat
-  pause
+  #pause
   git push
   pause
 }
