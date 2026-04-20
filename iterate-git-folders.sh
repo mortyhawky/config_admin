@@ -6,7 +6,7 @@ pause() {
 }
 
 function git_push {
-  git add . -v |bat
+  git add .  |bat
   git commit -m "$(date -Iseconds)" -v
   git push --dry-run
 }
