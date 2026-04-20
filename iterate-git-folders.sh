@@ -49,7 +49,7 @@ for dir in "${folders[@]}"; do
     echo "Now in foler: " $dir
     if [[ -d ".git" ]]; then
       echo "${dir:t} is a git repo: --> Calling function git_push"
-      pause
+      #pause
       git_push
     else
       echo "Not a git repo, skipping ${dir:t}"
