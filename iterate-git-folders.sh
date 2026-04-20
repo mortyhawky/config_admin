@@ -43,7 +43,7 @@ done
 
 
 for dir in "${folders[@]}"; do
-    echo "----------------------------------"
+    echo "----------------------------------\n"
     print "${dir}"          # :t gives only the folder name (basename)
     cd "$dir"
     echo "Now in foler: " $dir
