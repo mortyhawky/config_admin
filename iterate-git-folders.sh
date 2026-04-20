@@ -11,7 +11,7 @@ function git_push {
   git commit -m "$(date -Iseconds)" -v |bat
   #pause
   git push
-  pause
+  #pause
 }
 
 # entry point
