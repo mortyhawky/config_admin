@@ -8,7 +8,7 @@ pause() {
 function git_push {
   git add . -v
   git commit -m "$(date -Iseconds)" -v
-  git push -v
+  git push --dry-run
 }
 
 # entry point
