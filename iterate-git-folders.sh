@@ -7,7 +7,9 @@ pause() {
 
 function git_push {
   git add . -v |bat
+  pause
   git commit -m "$(date -Iseconds)" -v |bat
+  pause
   git push --dry-run
 }
 
@@ -23,7 +25,7 @@ echo "SCRIPT_DIR="$SCRIPT_DIR
 echo "SCRIPT_NAME="$SCRIPT_NAME
 echo
 echo "in: "$abs_path_r
-pause
+#pause
 
 # Get only top-level directories into an array
 folders=("$XDG_CONFIG_HOME"/*(/N))
