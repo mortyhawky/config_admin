@@ -14,7 +14,8 @@ echo "command:  git status"
 git status  |grep -i --color=always modified |bat
 
 echo "command:  git status"
-git status  |grep -i --color=always EMPTY
+STATE=$(git status  |grep -i --color=always EMPTY)
+echo "STATE=$STATE"
 f_pause
 
 
