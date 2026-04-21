@@ -17,7 +17,7 @@ git add .
 git commit -m "Initial commit of arch config"
 
 gh auth login
-gh repo create my-arch-config --public --source=. --remote=origin --push
+gh repo create config_admin --public --source=. --remote=origin --push
 git push
 
 git status
