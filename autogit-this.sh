@@ -13,9 +13,10 @@ f_pause
 echo "command:  git status"
 git status  |grep -i --color=always modified |bat
 
+echo "command:  git status"
 git status  |grep -i --color=always EMPTY
-#ZZZZreturn
 f_pause
+
 
 echo "command:  git add ."
 git add . -v |bat
