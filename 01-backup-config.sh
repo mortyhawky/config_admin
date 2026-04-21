@@ -4,7 +4,7 @@ echo "in: 01-backup-config.sh"
 echo "----------------------------"
 DRY="false"
 echo "DRY="$DRY
-SRC="$HOME/.config/"
+SRC="$XDG_CONFIG_HOME"
 echo "SRC="$SRC
 DST="/a/linux/current/.config_backup/"
 echo "DST="$DST
