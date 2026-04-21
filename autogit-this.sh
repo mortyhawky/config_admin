@@ -13,6 +13,7 @@ gh auth status |$BAT
 f_pause
 
 echo "command:  git status"
+git status -v |$BAT
 if ! git status --porcelain | grep -q .; then
   return
 fi
