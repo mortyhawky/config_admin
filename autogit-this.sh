@@ -12,12 +12,13 @@ f_pause
 
 echo "command:  git status"
 git status  |grep -i --color=always modified |bat
-
-echo "command:  git status"
-STATE=$(git status |grep "modified")
+#echo "command:  git status"
+STATE="$(git status --porcelain | grep '^ M')"
 echo "STATE=$STATE"
+if [[ -z "$STATE" ]]; then
+  exit
+fi
 f_pause
-
 
 echo "command:  git add ."
 git add . -v |bat
