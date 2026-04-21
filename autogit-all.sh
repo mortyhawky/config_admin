@@ -5,7 +5,9 @@ echo "Start: $SCRIPT_PATH"
 source $ZDOTDIR/functions.zsh
 #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
 BAT="cat"
-command -v bat >dev/null && BAT="bat"
+command -v bat >/dev/null && BAT="bat"
+#return
+f_pause
 
 function git_push() {
   if ! git status --porcelain | grep -q .; then
