@@ -5,6 +5,7 @@
 Copy files to an external local Backup:  
 
 ```bash
+git pull 
 01-backup-config
 ```
 
