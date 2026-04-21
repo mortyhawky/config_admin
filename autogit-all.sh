@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 ## Updated: 2026-04-21 12:54 Tue
-source $ZDOTDIR/.functions.zsh
+source $ZDOTDIR/functions.zsh
 
 BAT="cat"
 command -v bat >dev/null && BAT="bat"
