@@ -5,12 +5,12 @@ echo "Start: $SCRIPT_PATH"
 
 source $ZDOTDIR/functions.zsh
 
-gh auth status |bat --color=always
+gh auth status |bat
 f_pause
-git status -v |bat --color=always
+git status -v |bat |grep -i --color=always modified
 f_pause
-git add . -v |bat --color=always
+git add . -v |bat
 f_pause
-git commit -m "$(date -Iseconds)" -v |bat --color=always
+git commit -m "$(date -Iseconds)" -v |bat
 f_pause
-git push -v |bat --color=always
+git push -v |bat
