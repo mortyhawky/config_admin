@@ -1,9 +1,7 @@
 #!/usr/bin/env zsh
 
-pause() {
-  read -sk1 "?Press any key to continue..."
-  echo
-}
+BAT="cat"
+command -v bat >dev/null && BAT="bat"
 
 function git_push {
   STATE="$(git status --porcelain | grep '^ M')"
@@ -11,11 +9,11 @@ function git_push {
   if [[ -z "$STATE" ]]; then
     return
   fi
-  git add . -v |bat
+  git add -A -v |$BAT
   #pause
-  git commit -m "$(date -Iseconds)" -v |bat
+  git commit -m "$(date -Iseconds)" -v |$BAT
   #pause
-  git push |bat
+  git push |$BAT
   #pause
 }
 
@@ -38,9 +36,9 @@ echo
 folders=("$XDG_CONFIG_HOME"/*(/N))
 
 # Print the results
-print "Top-level folders in $CONFIG_DIR:"
+print "Top-level folders in $XDG_CONFIG_HOME:"
 for dir in "${folders[@]}"; do
-  echo $dir
+  echo "$dir"
 done
 #pause
 #return
@@ -50,13 +48,13 @@ done
 for dir in "${folders[@]}"; do
     echo "----------------------------------\n"
     print "${dir}"          # :t gives only the folder name (basename)
-    cd "$dir"
+    cd "$dir" || continue
     echo "Now in foler: " $dir
     if [[ -d ".git" ]]; then
       echo "${dir:t} is a git repo: --> Calling function git_push"
-      #pause
       git_push
     else
       echo "Not a git repo, skipping ${dir:t}"
     fi
+    f_pause
 done
