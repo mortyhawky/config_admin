@@ -14,7 +14,7 @@ echo "#### Admin" >> README.md
 
 git init
 git add .
-git commit -m "Initial commit of arch config"
+git commit -m "Initial commit"
 
 gh auth login
 gh repo create config_admin --public --source=. --remote=origin --push
