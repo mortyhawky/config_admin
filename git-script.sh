@@ -7,8 +7,10 @@ source $ZDOTDIR/functions.zsh
 
 gh auth status
 f_pause
-git status
-git add .
-git commit -m "$(date -Iseconds)"
-git push
-#return
+git status -v
+f_pause
+git add . -v
+f_pause
+git commit -m "$(date -Iseconds)" -v
+f_pause
+git push -v
