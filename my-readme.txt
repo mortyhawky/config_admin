@@ -13,7 +13,7 @@ EOF
 echo "#### Admin" >> README.md
 
 git init
-git add .
+git add -A -v
 git commit -m "Initial commit"
 
 gh auth login
