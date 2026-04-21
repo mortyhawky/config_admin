@@ -13,14 +13,14 @@ gh auth status |$BAT
 f_pause
 
 echo "command:  git status"
-git status -v |$BAT
+git status |$BAT
 if ! git status --porcelain | grep -q .; then
   return
 fi
 f_pause
 
-echo "command:  git add ."
-git add . -v |$BAT
+echo "command:  git add -A -v"
+git add -A |$BAT
 f_pause
 
 echo "command:  git commit -m \"$(date -Iseconds)\" "
