@@ -2,15 +2,15 @@
 
 #### Info and scripts for administration of config files.  
 
-Copy files to an external local Backup:  
+Backup $XDG_CONFIG_HOME to /a/linux
 
 ```bash
-git pull 
 01-backup-config
 ```
 
 Push to git:  
 ```bash
+git pull
 autogit-all.sh
 autogit-this.sh
 ```
