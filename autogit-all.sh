@@ -6,18 +6,16 @@ source $ZDOTDIR/functions.zsh
 BAT="cat"
 command -v bat >dev/null && BAT="bat"
 
-function git_push {
-  STATE="$(git status --porcelain | grep '^ M')"
-  echo "STATE=$STATE"
-  if [[ -z "$STATE" ]]; then
+function git_push() {
+  if ! git status --porcelain | grep -q .; then
     return
   fi
-  git add -A -v |$BAT
-  #pause
-  git commit -m "$(date -Iseconds)" -v |$BAT
-  #pause
-  git push |$BAT
-  #pause
+
+  command -v bat >/dev/null && BAT=bat || BAT=cat
+
+  git add -A -v | $BAT
+  git commit -m "$(date -Iseconds)" -v | $BAT
+  git push | $BAT
 }
 
 # entry point
@@ -49,7 +47,8 @@ done
 
 
 for dir in "${folders[@]}"; do
-    echo "----------------------------------\n"
+    echo "----------------------------------"
+    echo
     print "${dir}"          # :t gives only the folder name (basename)
     cd "$dir" || continue
     echo "Now in foler: " $dir
