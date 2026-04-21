@@ -20,7 +20,7 @@ fi
 f_pause
 
 echo "command:  git add -A -v"
-git add -A |$BAT
+git add -A -v  |$BAT
 f_pause
 
 echo "command:  git commit -m \"$(date -Iseconds)\" "
