@@ -7,7 +7,7 @@ source $ZDOTDIR/functions.zsh
 
 gh auth status |bat
 f_pause
-git status -v |bat |grep -i --color=always modified
+git status -v |grep -i --color=always modified |bat
 f_pause
 git add . -v |bat
 f_pause
