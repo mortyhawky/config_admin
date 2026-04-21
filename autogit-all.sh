@@ -9,7 +9,7 @@ function git_push {
   STATE="$(git status --porcelain | grep '^ M')"
   echo "STATE=$STATE"
   if [[ -z "$STATE" ]]; then
-    exit
+    return
   fi
   git add . -v |bat
   #pause
