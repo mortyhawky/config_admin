@@ -5,7 +5,7 @@ echo "Start: $SCRIPT_PATH"
 
 source $ZDOTDIR/functions.zsh
 
-gh auth status
+gh auth status |bat
 f_pause
 git status -v
 f_pause
