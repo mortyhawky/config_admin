@@ -1,13 +1,18 @@
-cd ~/.config
-git init
+git clone https://github.com/mortyhawky/config_admin.git $XDG_CONFIG_HOME/admin
+
+## new repo using CLI:
+cd ~/.config/admin
 
 cat > .gitignore << 'EOF'
-gh/
-mozilla/
 dconf/
+gh/
 gtk-3.0/
+mozilla/
 EOF
 
+echo "#### Admin" >> README.md
+
+git init
 git add .
 git commit -m "Initial commit of arch config"
 
