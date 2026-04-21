@@ -11,6 +11,6 @@ Backup $XDG_CONFIG_HOME to /a/linux
 Push to git:  
 ```bash
 git pull
-autogit-all.sh
 autogit-this.sh
+autogit-all.sh
 ```
