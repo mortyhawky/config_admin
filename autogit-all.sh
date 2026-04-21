@@ -4,8 +4,7 @@ local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
 source $ZDOTDIR/functions.zsh
 #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
-BAT="cat"
-command -v bat >/dev/null && BAT="bat"
+command -v bat >/dev/null && BAT=bat || BAT=cat
 #return
 f_pause
 
@@ -14,7 +13,7 @@ function git_push() {
     return
   fi
 
-  command -v bat >/dev/null && BAT=bat || BAT=cat
+  #command -v bat >/dev/null && BAT=bat || BAT=cat
 
   git add -A -v | $BAT
   git commit -m "$(date -Iseconds)" -v | $BAT
