@@ -6,6 +6,11 @@ pause() {
 }
 
 function git_push {
+  STATE="$(git status --porcelain | grep '^ M')"
+  echo "STATE=$STATE"
+  if [[ -z "$STATE" ]]; then
+    exit
+  fi
   git add . -v |bat
   #pause
   git commit -m "$(date -Iseconds)" -v |bat

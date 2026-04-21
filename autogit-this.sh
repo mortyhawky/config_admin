@@ -12,11 +12,12 @@ f_pause
 
 echo "command:  git status"
 git status  |grep -i --color=always modified |bat
-#echo "command:  git status"
+
 STATE="$(git status --porcelain | grep '^ M')"
 echo "STATE=$STATE"
 if [[ -z "$STATE" ]]; then
-  exit
+
+  return
 fi
 f_pause
 
