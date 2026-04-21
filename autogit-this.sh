@@ -14,10 +14,13 @@ echo "command:  git status"
 git status  |grep -i --color=always modified |bat
 f_pause
 
+echo "command:  git add ."
 git add . -v |bat
 f_pause
 
+echo "command:  git commit -m \"$(date -Iseconds)\" "
 git commit -m "$(date -Iseconds)" -v |bat
 f_pause
 
+echo "command:  git push"
 git push -v |bat
