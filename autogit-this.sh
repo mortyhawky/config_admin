@@ -7,10 +7,10 @@ source $ZDOTDIR/functions.zsh
 
 gh auth status |bat --color=always
 f_pause
-git status -v |bat
+git status -v |bat --color=always
 f_pause
-git add . -v |bat
+git add . -v |bat --color=always
 f_pause
-git commit -m "$(date -Iseconds)" -v |bat
+git commit -m "$(date -Iseconds)" -v |bat --color=always
 f_pause
-git push -v |bat
+git push -v |bat --color=always
