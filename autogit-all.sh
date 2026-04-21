@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 ## Updated: 2026-04-21 12:54 Tue
 source $ZDOTDIR/functions.zsh
+#all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
 
 BAT="cat"
 command -v bat >dev/null && BAT="bat"
@@ -53,10 +54,11 @@ for dir in "${folders[@]}"; do
     cd "$dir" || continue
     echo "Now in foler: " $dir
     if [[ -d ".git" ]]; then
-      echo "${dir:t} is a git repo: --> Calling function git_push"
+      echo " ${dir:t} is a git repo.      --> Calling function git_push"
       git_push
     else
-      echo "Not a git repo, skipping ${dir:t}"
+      echo " ${dir:t} is Not a git repo.  --> skipping."
     fi
+    #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
     f_pause
 done
