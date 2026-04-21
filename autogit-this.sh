@@ -4,19 +4,16 @@ local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
 source $ZDOTDIR/functions.zsh
 #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
-BAT="cat"
-command -v bat >/dev/null && BAT="bat"
+command -v bat >/dev/null && BAT='bat' || BAT='cat'
+echo "Using: $(which $BAT)"
+#return
 
 echo "command:  gh auth status"
 gh auth status |$BAT
 f_pause
 
 echo "command:  git status"
-git status  |grep -i --color=always modified |$BAT
-
-STATE="$(git status --porcelain | grep '^ M')"
-echo "STATE=$STATE"
-if [[ -z "$STATE" ]]; then
+if ! git status --porcelain | grep -q .; then
   return
 fi
 f_pause
