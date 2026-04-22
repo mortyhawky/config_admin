@@ -37,4 +37,4 @@ clear
 echo "command:  git push"
 #git push -v |grep -i --color=always "pushing"
 #git push -v |grep -i --color=always "write"
-git push --porcelain |grep --color "https"
+git push --porcelain |grep --color "To https"
