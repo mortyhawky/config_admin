@@ -14,10 +14,10 @@ function git_pull() {
   printf "\033[38;5;196m $state \033[0m \n"
   if [[ "$state" == "modified" ]]; then
     printf "\033[38;5;196m---> Can't pull, manually intervention needed! \033[0m \n"
-    exit
+    return
   fi
   git pull
-
+  return
 
   #state=""
   #state=$(git status --porcelain |grep -q .)
