@@ -10,16 +10,25 @@ command -v bat >/dev/null && BAT=bat || BAT=cat
 #f_pause
 
 function git_push() {
-  state=""
-  state=$(git status --porcelain |grep -q .)
-  echo "------state=$state"
-  if $state; then
-    echo "------can't pull, check manually!"
+  state=$(git status |grep -io "modified")
+  printf "\033[38;5;196m $state \033[0m \n"
+  if [[ "$state" == "modified" ]]; then
+    printf "\033[38;5;196m---> Can't pull, manually intervention needed! \033[0m \n"
     exit
-  else
-    echo "-----IS A REPO"
-    git pull -v |$BAT
   fi
+  exit
+
+
+  #state=""
+  #state=$(git status --porcelain |grep -q .)
+  #echo "------state=$state"
+  #if $state; then
+  #  echo "------can't pull, check manually!"
+  #  exit
+  #else
+  #  echo "-----IS A REPO"
+  #  git pull -v |$BAT
+  #fi
   #return
 
   #if ! git status --porcelain | grep -q .; then
