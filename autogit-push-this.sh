@@ -8,10 +8,12 @@ command -v bat >/dev/null && BAT='bat' || BAT='cat'
 echo "Using: $(which $BAT)"
 #return
 
+clear
 echo "command:  gh auth status"
 gh auth status |$BAT
 f_pause
 
+clear
 echo "command:  git status"
 git status |$BAT
 if ! git status --porcelain | grep -q .; then
@@ -19,13 +21,16 @@ if ! git status --porcelain | grep -q .; then
 fi
 f_pause
 
+clear
 echo "command:  git add -A -v"
 git add -A -v  |$BAT
 f_pause
 
+clear
 echo "command:  git commit -m \"$(date -Iseconds)\" "
 git commit -m "$(date -Iseconds)" -v |$BAT
 f_pause
 
+clear
 echo "command:  git push"
 git push -v |$BAT
