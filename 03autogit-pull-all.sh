@@ -82,7 +82,7 @@ for dir in "${folders[@]}"; do
   echo "Now in foler: " $dir
   if [[ -d ".git" ]]; then
     echo " ${dir:t} is a git repo.      --> Calling function git_pull()"
-    git_pull()
+    git_pull
   else
     echo " ${dir:t} is Not a git repo.  --> skipping."
   fi
