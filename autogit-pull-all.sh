@@ -16,17 +16,18 @@ function git_push() {
   if $state; then
     echo "can't pull, check manually!"
     exit
+  else
+    git pull -v |$BAT
   fi
-
   exit
 
-  if ! git status --porcelain | grep -q .; then
-    return
-  fi
+  #if ! git status --porcelain | grep -q .; then
+  #  return
+  #fi
 
-  #command -v bat >/dev/null && BAT=bat || BAT=cat
+  ##command -v bat >/dev/null && BAT=bat || BAT=cat
 
-  git pull -v |$BAT
+  #git pull -v |$BAT
   #git add -A -v | $BAT
   #git commit -m "$(date -Iseconds)" -v | $BAT
   #git push | $BAT
