@@ -9,14 +9,14 @@ command -v bat >/dev/null && BAT=bat || BAT=cat
 #return
 #f_pause
 
-function git_push() {
+function git_pull() {
   state=$(git status |grep -io "modified")
   printf "\033[38;5;196m $state \033[0m \n"
   if [[ "$state" == "modified" ]]; then
     printf "\033[38;5;196m---> Can't pull, manually intervention needed! \033[0m \n"
     exit
   fi
-  exit
+  git pull
 
 
   #state=""
@@ -81,8 +81,8 @@ for dir in "${folders[@]}"; do
   cd "$dir" || continue
   echo "Now in foler: " $dir
   if [[ -d ".git" ]]; then
-    echo " ${dir:t} is a git repo.      --> Calling function git_push"
-    git_push
+    echo " ${dir:t} is a git repo.      --> Calling function git_pull"
+    git_pull
   else
     echo " ${dir:t} is Not a git repo.  --> skipping."
   fi
