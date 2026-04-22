@@ -15,9 +15,10 @@ function git_push() {
 
   #command -v bat >/dev/null && BAT=bat || BAT=cat
 
-  git add -A -v | $BAT
-  git commit -m "$(date -Iseconds)" -v | $BAT
-  git push | $BAT
+  git pull -v |$BAT
+  #git add -A -v | $BAT
+  #git commit -m "$(date -Iseconds)" -v | $BAT
+  #git push | $BAT
 }
 
 # entry point
@@ -61,5 +62,5 @@ for dir in "${folders[@]}"; do
       echo " ${dir:t} is Not a git repo.  --> skipping."
     fi
     #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
-    #f_pause
+    f_pause
 done
