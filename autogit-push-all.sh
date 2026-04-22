@@ -13,12 +13,10 @@ function git_push() {
     return
   fi
 
-  #command -v bat >/dev/null && BAT=bat || BAT=cat
-
-  git pull
-  #git add -A -v | $BAT
-  #git commit -m "$(date -Iseconds)" -v | $BAT
-  #git push | $BAT
+  #git pull
+  git add -A -v | $BAT
+  git commit -m "$(date -Iseconds)" -v | $BAT
+  git push | $BAT
 }
 
 # entry point
