@@ -23,7 +23,7 @@ f_pause
 
 clear
 echo "command:  git add -A -v"
-git add -A -v  |$BAT
+git add -A -v  |$BAT |grep -i --color=always "add"
 f_pause
 
 clear
