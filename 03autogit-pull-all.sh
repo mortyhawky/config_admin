@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-set -e
+#set -e
 ## Updated: 2026-04-22 13:56 W
 local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
@@ -81,8 +81,8 @@ for dir in "${folders[@]}"; do
   cd "$dir" || continue
   echo "Now in foler: " $dir
   if [[ -d ".git" ]]; then
-    echo " ${dir:t} is a git repo.      --> Calling function git_pull"
-    git_pull
+    echo " ${dir:t} is a git repo.      --> Calling function git_pull()"
+    git_pull()
   else
     echo " ${dir:t} is Not a git repo.  --> skipping."
   fi
