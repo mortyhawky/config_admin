@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 set -e
-## Updated: 2026-04-22 13:56 Wed
+## Updated: 2026-04-22 13:56 We
 local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
 source $ZDOTDIR/functions.zsh
