@@ -23,13 +23,13 @@ f_pause
 
 clear
 echo "command:  git add -A -v"
-git add -A -v  |$BAT |grep -i --color=always "add"
+git add -A -v  |grep -i --color=always "add"
 f_pause
 
 clear
 echo "command:  git commit -m \"$(date -Iseconds)\" "
-git commit -m "$(date -Iseconds)" -v |grep -i --color=always "changed" 
-git commit -m "$(date -Iseconds)" -v |$BAT 
+git commit -m "$(date -Iseconds)" -v  |grep -i --color=always "changed" 
+#git commit -m "$(date -Iseconds)" -v |$BAT 
 f_pause
 
 clear
