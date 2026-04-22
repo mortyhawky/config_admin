@@ -17,6 +17,7 @@ clear
 echo "command:  git status"
 git status |$BAT |grep -i --color=always "modified"
 if ! git status --porcelain | grep -q .; then
+  echo "------->"
   return
 fi
 f_pause
