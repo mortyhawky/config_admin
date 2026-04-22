@@ -10,7 +10,8 @@ command -v bat >/dev/null && BAT=bat || BAT=cat
 #f_pause
 
 function git_push() {
-  git status |grep "is Not a git repo"
+  #git status |grep "is Not a git repo"
+  git status 
 
 
   if ! git status --porcelain | grep -q .; then
