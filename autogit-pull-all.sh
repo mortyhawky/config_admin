@@ -9,6 +9,8 @@ command -v bat >/dev/null && BAT=bat || BAT=cat
 f_pause
 
 function git_push() {
+  git status |$BAT
+
   if ! git status --porcelain | grep -q .; then
     return
   fi
