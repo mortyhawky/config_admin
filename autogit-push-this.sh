@@ -9,9 +9,9 @@ echo "Using: $(which $BAT)"
 #return
 
 clear
-echo "command:  gh auth status"
-gh auth status |$BAT
-f_pause
+#echo "command:  gh auth status"
+#gh auth status |$BAT
+#f_pause
 
 clear
 echo "command:  git status"
@@ -34,4 +34,4 @@ f_pause
 
 clear
 echo "command:  git push"
-git push -v |$BAT
+git push -v |grep -i --color=always "pushing"
