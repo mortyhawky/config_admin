@@ -19,7 +19,7 @@ function git_push() {
   else
     git pull -v |$BAT
   fi
-  exit
+  #return
 
   #if ! git status --porcelain | grep -q .; then
   #  return
