@@ -14,9 +14,10 @@ function git_push() {
   state=$(git status --porcelain |grep -q .)
   echo "------state=$state"
   if $state; then
-    echo "can't pull, check manually!"
+    echo "------can't pull, check manually!"
     exit
   else
+    echo "-----IS A REPO"
     git pull -v |$BAT
   fi
   #return
