@@ -36,4 +36,5 @@ f_pause
 clear
 echo "command:  git push"
 #git push -v |grep -i --color=always "pushing"
-git push -v |grep -i --color=always "write"
+#git push -v |grep -i --color=always "write"
+git push 
