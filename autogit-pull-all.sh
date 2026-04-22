@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
-## Updated: 2026-04-21 13:09 Tue
+set -e
+## Updated: 2026-04-22 13:56 Wed
 local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
 source $ZDOTDIR/functions.zsh
@@ -9,7 +10,8 @@ command -v bat >/dev/null && BAT=bat || BAT=cat
 #f_pause
 
 function git_push() {
-  git status |$BAT
+  git status |grep "is Not a git repo"
+
 
   if ! git status --porcelain | grep -q .; then
     return
