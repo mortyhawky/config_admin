@@ -8,12 +8,12 @@ command -v bat >/dev/null && BAT='bat' || BAT='cat'
 echo "Using: $(which $BAT)"
 #return
 
-clear
+#clear
 #echo "command:  gh auth status"
 #gh auth status |$BAT
 #f_pause
 
-clear
+#clear
 echo "command:  git status"
 git status |$BAT |grep -i --color=always "modified"
 if ! git status --porcelain | grep -q .; then
@@ -22,18 +22,18 @@ if ! git status --porcelain | grep -q .; then
 fi
 f_pause
 
-clear
+#clear
 echo "command:  git add -A -v"
 git add -A -v  |grep -i --color=always "add"
 f_pause
 
-clear
+#clear
 echo "command:  git commit -m \"$(date -Iseconds)\" "
 git commit -m "$(date -Iseconds)" -v  |grep -i --color=always "changed" 
 #git commit -m "$(date -Iseconds)" -v |$BAT 
 f_pause
 
-clear
+#clear
 echo "command:  git push"
 #git push -v |grep -i --color=always "pushing"
 #git push -v |grep -i --color=always "write"
