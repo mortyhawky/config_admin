@@ -1,5 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env zsh
 
 clear
 git pull
-
