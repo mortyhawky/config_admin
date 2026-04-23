@@ -3,7 +3,7 @@ echo "in: 01-backup-config.sh"
 
 source $ZDOTDIR/functions.zsh
 cd $HOME
-ls -la
+#ls -la
 
 echo "--------------------------------------"
 DRY="false"
@@ -13,18 +13,18 @@ echo "SRC="$SRC
 DST="/a/linux/current/.config_backup/"
 echo "DST="$DST
 echo "--------------------------------------"
-f_pause
-
-mkdir -p "$DST"
-ls -la $DST
-ls -la
-f_pause
+#f_pause
+#
+#mkdir -p "$DST"
+#ls -la $DST
+#ls -la
+#f_pause
 
 
 opts=(
   -rtvvL --delete               
   --exclude=".git/"             
-  --exclude="themes/"
+  #--exclude="themes/"
   --exclude="cache/"
   --exclude="dconf/"
   --exclude="gtk-3.0/"
