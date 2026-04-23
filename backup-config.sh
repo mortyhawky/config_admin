@@ -1,17 +1,25 @@
 #!/usr/bin/env zsh
 echo "in: 01-backup-config.sh"
 
-echo "----------------------------"
+source $ZDOTDIR/functions.zsh
+cd $HOME
+ls -la
+
+echo "--------------------------------------"
 DRY="false"
 echo "DRY="$DRY
-SRC="$XDG_CONFIG_HOME"
+SRC="/home/m/.config/"
 echo "SRC="$SRC
 DST="/a/linux/current/.config_backup/"
 echo "DST="$DST
-echo "----------------------------"
-
+echo "--------------------------------------"
+f_pause
 
 mkdir -p "$DST"
+ls -la $DST
+ls -la
+f_pause
+
 
 opts=(
   -rtvvL --delete               
@@ -21,6 +29,7 @@ opts=(
   --exclude="dconf/"
   --exclude="gtk-3.0/"
   --exclude="mozilla/"
+  --exclude="BraveSoftware/"
   --exclude="tmp/"
 )
 
@@ -32,6 +41,7 @@ echo "${opts[@]}"
 echo "----------------------------"
 
 rsync "${opts[@]}" "$SRC" "$DST"
+#rsync "${opts[@]}" "/home/m/.config" "/a/linux/current/.config_backup"
 echo "READY!\n-------------\n\n"
 
 # pm -Syu rsync
