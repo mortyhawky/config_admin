@@ -13,13 +13,12 @@ EOF
 echo "#### Admin" >> README.md
 
 git init
-git add -A -v
-git commit -m "Initial commit"
+git add -Av
+git commit -m "Arch: $(date)"
 
 gh auth status
 gh auth login
 gh repo create config_admin --public --source=. --remote=origin --push
-git push
+git push -u origin main
 
 git status
-
