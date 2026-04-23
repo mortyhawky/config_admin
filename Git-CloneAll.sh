@@ -4,10 +4,11 @@ programs=(
   "admin"
   "alacritty"
   "dmenu"
+  "feh"
 )
 
 cd $XDG_CONFIG_HOME
-ls -la
+#ls -la
 for prg in $programs; do
   path=$XDG_CONFIG_HOME/$prg
   echo $path
