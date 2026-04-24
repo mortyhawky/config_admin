@@ -15,7 +15,8 @@ echo "Using: $(which $BAT)"
 
 #clear
 echo "command:  git status"
-git status |$BAT |grep -i --color=always "modified"
+#git status |$BAT |grep -i --color=always "modified"
+git status |$BAT 
 if ! git status --porcelain | grep -q .; then
   echo "---> UP TO DATE "
   return
