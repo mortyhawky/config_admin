@@ -8,7 +8,7 @@ command -v bat >/dev/null && BAT='bat' || BAT='cat'
 echo "Using: $(which $BAT)"
 #return
 
-#clear
+clear
 #echo "command:  gh auth status"
 #gh auth status |$BAT
 #f_pause
