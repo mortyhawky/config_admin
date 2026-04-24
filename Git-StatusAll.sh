@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 ## Updated ArchReal 2026-04-24 09:08 Fri
+set -e
 local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
 source $ZDOTDIR/functions.zsh
@@ -9,14 +10,17 @@ command -v bat >/dev/null && BAT=bat || BAT=cat
 #f_pause
 
 # entry point
-#clear
+clear
 SCRIPT_DIR=${0:A:h}   # just the directory
 SCRIPT_NAME=${0:t}    # :t = tail = just the filename
 echo "SCRIPT_DIR="$SCRIPT_DIR
 echo "SCRIPT_NAME="$SCRIPT_NAME
 echo
-#pause
+
+echo "\$XDG_CONFIG_HOME=$XDG_CONFIG_HOME"
+f_pause
 #return
+
 
 # Top-level directories
 all_folders=("$XDG_CONFIG_HOME"/*(/N))
