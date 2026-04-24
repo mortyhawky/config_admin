@@ -10,6 +10,7 @@ f_pause
 
 function git_push() {
   if ! git status --porcelain | grep -q .; then
+    echo "UPDATED!!!"
     return
   fi
 
