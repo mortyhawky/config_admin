@@ -58,6 +58,7 @@ for dir in "${folders[@]}"; do
       git_push
     else
       echo " ${dir:t} is Not a git repo.  --> skipping."
+      continue
     fi
     #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
     f_pause
