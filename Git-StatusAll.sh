@@ -45,25 +45,16 @@ function git_pull() {
 folders=("$XDG_CONFIG_HOME"/*(/N))
 
   for dir in "${folders[@]}"; do
-    clear
-    #echo
-    #echo
-    echo "#####################################################"
-    #echo
-    #print "${dir}"          # :t gives only the folder name (basename)
-     cd "$dir" || continue
-     printf "\033[38;5;196m Now in: ${dir} \033[0m \n"
-     #echo "Now in folder: " $dir
-     if [[ -d ".git" ]]; then
-       echo " ${dir:t} is a git repo.      --> Calling function git_pull()"
-       git_pull
-     else
-       echo " ${dir:t} is Not a git repo.  --> skipping."
-       #continue
-     fi
-     #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
-     f_pressAnyKey
+    echo "#####################################################\n"
+    cd "$dir"
+    printf "\033[32m Now in: ${dir} \033[0m \n"
+    if [[ -d ".git" ]]; then
+      echo " ${dir:t} is a git repo.      --> Calling function git_pull()"
+      git_pull
+    else
+      echo " ${dir:t} is Not a git repo.  --> skipping."
+    fi
+    f_pressAnyKey
   done
   # END of for loop
-
 # END of MAIN
