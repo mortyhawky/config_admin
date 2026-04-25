@@ -29,7 +29,7 @@ git add -Av  |grep -i --color=always "add"
 f_pause
 
 #clear
-echo "command:  git commit -m \"$(date -Iseconds)\" "
+echo "command:  git commit -m \"\$\(date -Iseconds\)\" "
 git commit -m "$(date -Iseconds)" -v  |grep -i --color=always "changed" 
 #git commit -m "$(date -Iseconds)" -v |$BAT 
 f_pause
