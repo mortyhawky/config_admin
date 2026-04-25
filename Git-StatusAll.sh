@@ -1,52 +1,69 @@
 #!/usr/bin/env zsh
-## Updated ArchReal 2026-04-24 09:08 Fri
+## Updated: 2026-04-25 13:20 Sat
 set -e
-local SCRIPT_PATH="${(%)-%N}"
-echo "Start: $SCRIPT_PATH"
-source $ZDOTDIR/functions.zsh
 #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
-command -v bat >/dev/null && BAT=bat || BAT=cat
-#return
-#f_pause
+source $ZDOTDIR/functions.zsh
+local SCRIPT_PATH="${0}"
 
-# entry point
+#####################################################
+## ENTRY POINT
+#####################################################
 clear
-SCRIPT_DIR=${0:A:h}   # just the directory
-SCRIPT_NAME=${0:t}    # :t = tail = just the filename
-echo "SCRIPT_DIR="$SCRIPT_DIR
-echo "SCRIPT_NAME="$SCRIPT_NAME
-echo
+echo "---- ---- Start: $SCRIPT_PATH ---- ----"
 
-echo "\$XDG_CONFIG_HOME=$XDG_CONFIG_HOME"
-f_pause
-#return
+# if bat doesn't exist use cat
+BAT="---"
+echo "\$BAT"=$BAT
+command -v bat >/dev/null && BAT=bat || BAT=cat
+echo "\$BAT"=$BAT
+#all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
+f_pressAnyKey
 
 
-# Top-level directories
-all_folders=("$XDG_CONFIG_HOME"/*(/N))
-# Folders that contain a .git directory
-git_folders=()
+#####################################################
+##  FUNCTIONS
+#####################################################
+function git_pull() {
+  git status
+  #state=$(git status |grep -io "modified")
+  #printf "\033[38;5;196m $state \033[0m \n"
+  #if [[ "$state" == "modified" ]]; then
+  #  printf "\033[38;5;196m---> Can't pull, manually intervention needed! \033[0m \n"
+  #  return
+  #fi
+  ##git pull
+  #f_pressAnyKey
+  #return
+}
+# END of function git_pull()
 
-for dir in "${all_folders[@]}"; do
-  if [[ -d "$dir/.git" ]]; then
-    git_folders+=("$dir")
-  fi
-done
 
-# Print result
-echo "\n----- GIT FOLDERS -----"
-for dir in "${git_folders[@]}"; do
-  echo "$dir"
-done
-#f_pause
-#return
+#####################################################
+# MAIN
+#####################################################
+# Get only top-level directories into an array
+folders=("$XDG_CONFIG_HOME"/*(/N))
 
-for dir in "${git_folders[@]}"; do
+  for dir in "${folders[@]}"; do
     clear
-    echo "\n----------------------------------\n"
-    cd "$dir"
-    pwd
-    git status 
-    echo "\n----------------------------------\n"
-    f_pause
-done
+    #echo
+    #echo
+    echo "#####################################################"
+    #echo
+    #print "${dir}"          # :t gives only the folder name (basename)
+     cd "$dir" || continue
+     printf "\033[38;5;196m Now in: ${dir} \033[0m \n"
+     #echo "Now in folder: " $dir
+     if [[ -d ".git" ]]; then
+       echo " ${dir:t} is a git repo.      --> Calling function git_pull()"
+       git_pull
+     else
+       echo " ${dir:t} is Not a git repo.  --> skipping."
+       continue
+     fi
+     #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
+     f_pressAnyKey
+  done
+  # END of for loop
+
+# END of MAIN
