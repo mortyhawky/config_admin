@@ -17,7 +17,7 @@ echo "\$BAT"=$BAT
 command -v bat >/dev/null && BAT=bat || BAT=cat
 echo "\$BAT"=$BAT
 #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
-f_pressAnyKey
+#f_pressAnyKey
 
 
 #####################################################
