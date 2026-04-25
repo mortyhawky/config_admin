@@ -24,8 +24,8 @@ fi
 f_pause
 
 #clear
-echo "command:  git add -A -v"
-git add -A -v  |grep -i --color=always "add"
+echo "command:  git add -Av"
+git add -Av  |grep -i --color=always "add"
 f_pause
 
 #clear
