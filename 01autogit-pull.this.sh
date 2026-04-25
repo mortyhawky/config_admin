@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-clear
-git pull
