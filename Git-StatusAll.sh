@@ -59,7 +59,7 @@ folders=("$XDG_CONFIG_HOME"/*(/N))
        git_pull
      else
        echo " ${dir:t} is Not a git repo.  --> skipping."
-       continue
+       #continue
      fi
      #all functions in $ZDOTDIR/funcitons.zsh is prefixed with f_
      f_pressAnyKey
