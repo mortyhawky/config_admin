@@ -52,7 +52,7 @@ folders=("$XDG_CONFIG_HOME"/*(/N))
       echo " ${dir:t} is a git repo.      --> Calling function git_pull()"
       git_pull
     else
-      printf " ${dir:t} is \033[32m Not \033[0m a git repo.  --> skipping."
+      printf " ${dir:t} is \033[31m NOT \033[0m a git repo.  --> skipping."
     fi
     f_pressAnyKey
   done
