@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
-## Updated: 2026-04-26 08:16 Sun
 
+
+# #########################################################
+# INIT
+# #########################################################
 local SCRIPT_PATH="${(%)-%N}"
 echo "Start: $SCRIPT_PATH"
 # All my functions in functions.zsh are prefixed with f_
@@ -9,17 +12,23 @@ echo "Start: $SCRIPT_PATH"
 # alias lf='f_listFunctions'
 source $ZDOTDIR/functions.zsh
 
+
 # #########################################################
-# ENTRY POINT
+# FUNCTIONS
 # #########################################################
-clear
-git status
-#echo "------------------------"
-git status --porcelain |bat
-#echo
-#git status --porcelain |bat |grep --color=always "M"
-#git add -Av |bat |grep --color=always "add"
-git add -Av |bat |grep --color=always "add"
-git status --porcelain |bat
-f_pressAnyKey
-git commit -m "$(date)" |grep --color=always "git push"
+function git_sasc() {
+  git status --porcelain |bat
+  git add -Av |bat |grep --color=always "add"
+  git status --porcelain |bat
+  git commit -m "$(date)" |grep --color=always "git push"
+}
+
+
+# #########################################################
+# MAIN
+# #########################################################
+  clear
+  git_sasc
+  f_pressAnyKey
+  git_sasc
+# END MAIN
