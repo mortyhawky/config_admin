@@ -23,4 +23,3 @@ git add -Av |bat |grep --color=always "add"
 git status --porcelain |bat
 f_pressAnyKey
 git commit -m "$(date)" |grep --color=always "git push"
-f_pressAnyKey
