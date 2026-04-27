@@ -23,7 +23,7 @@ echo "--------------------------------------"
 
 opts=(
   -rtvvL --delete               
-  --exclude=".git/"             
+  #--exclude=".git/"             
   #--exclude="themes/"
   --exclude="cache/"
   --exclude="dconf/"
