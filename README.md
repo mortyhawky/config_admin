@@ -2,15 +2,11 @@
 
 #### Info and scripts for administration of config files.  
 
-Backup $XDG_CONFIG_HOME to /a/linux
-
-```bash
+```zsh
 01-backup-config
 ```
 
 Push to git:  
-```bash
+```zsh
 git pull
-autogit-this.sh
-autogit-all.sh
 ```
