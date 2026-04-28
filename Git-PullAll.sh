@@ -24,7 +24,7 @@ echo "---- ---- Start: $SCRIPT_PATH ---- ----"
 ##  FUNCTIONS
 #####################################################
 function git_pull() {
-  git status
+  git pull
   #state=$(git status |grep -io "modified")
   #printf "\033[38;5;196m $state \033[0m \n"
   #if [[ "$state" == "modified" ]]; then
